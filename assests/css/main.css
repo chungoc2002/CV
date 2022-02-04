@@ -1,0 +1,509 @@
+.header  {
+    height: 120px;
+    background-image: linear-gradient(0, #fe6433 , #f53e2d);
+}
+.header__navbar {
+    display: flex;
+    /* tat ca deu nam tren cung 1 hang */
+    justify-content: space-between;
+    /* khoang cach giua 2 item */
+
+}
+
+.header__navbar-list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 5px;
+}
+.header__navbar-item {
+    margin: 0 8px;
+/* tren duoi = 0, trai phai =8px */
+position: relative;
+
+}
+.header__navbar-item, .header__navbar-item-link  {
+
+    display: inline-block;
+    /* nam tren cung 1 hang */
+    font-size: 14px;
+    color: #fff;
+    text-decoration: none;
+    /* bo gach chan */
+    font-weight: 200;
+    /* chinh sua độ dày của chữ */
+}
+.header__navbar-item:hover,
+.header__navbar-icon-link:hover,
+ .header__navbar-item-link:hover {
+     color: rgba(255, 255, 255, 0.7);
+     cursor: pointer;
+ }
+.header__navbar-item--strong {
+    font-weight: 400;
+}
+.header__navbar-item--separate::after {
+    content: "";
+    display: block;
+    position: absolute;
+    border-left: 1px solid #FB9080;
+    height: 14px;
+    right: -9px;
+    top: 50%;
+    transform: translateY(-50%);
+
+
+}
+.header__navbar-icon-link {
+    color: #fff;
+    text-decoration: none;
+}
+.header__navbar-icon {
+    font-size: 18px;
+    margin: 0 4px;
+}
+.header__navbar-item-no-pointer {
+    cursor: text;
+    color: #fff;
+}
+/* header QR code */
+.header__qr {
+    width: 186px;
+    background-color:#fff;
+    position: absolute;
+    left: 0;
+    top: 170%;
+    padding: 8px;
+    border-radius: 2px;
+    /* bo goc */
+    display: none;
+    /* ẩn qr code */
+    animation: faceIn ease-in 0.3s;
+
+
+}
+.header__navbar-item--has-qr:hover .header__qr {
+    display: block;
+
+
+}
+.header__navbar-item--has-notify:hover .header__notify {
+    display: block;
+}
+.header__qr-apps {
+    display: flex;
+    /* lên ngang hàng */
+    justify-content: space-between;
+
+}
+.header__qr-img {
+    width: 100%;
+
+}
+.header__qr-download-img {
+    height: 16px;
+
+
+}
+.header__qr-download-img:nth-child(1) {
+    margin-left: 11px;
+}
+.header__qr-download-img:nth-child(2) {
+    margin-right: 11px;
+}
+/* header notify */
+/* thông báo */
+.header__notify { 
+    position: absolute;
+    top: 170%;
+    width: 404px;
+    right: 0;
+    border: 1px solid #D3D3D3;
+    background-color: #fff;
+    transform-origin: calc(100% - 20px) top ;
+    /* dịch chuyển tâm của animation */
+    animation: headerNotifyGrowth ease-in 0.25s;
+    will-change: opacity, transform;
+    display: none;
+
+}
+
+
+/* tạo mũi tên ở thông báo  */
+.header__notify::before {
+    content: "";
+    border-style: solid;
+    border-width: 20px 30px;
+    border-color: transparent transparent #fff transparent; 
+    position: absolute;
+    right: 4px;
+    top: -29px;
+
+}
+/* cầu nối */
+.header__notify::after {
+    content: "";
+    width: 90px ;
+    height: 20px;
+    right: 0;
+    top: -15px;
+    background-color: transparent;
+    /* with = thông báo */
+    position: absolute;
+
+}
+
+
+.header__notify-header {
+    height: 40px;
+    background-color: #fff;
+
+
+}
+.header__notify-header h3 {
+    color: #999;
+    font-size: 1.4rem ;
+    line-height: 40px;
+    /* line height bằng chiều cao của thằng chứa nó */
+
+
+    margin: 0 0 0 12px;
+    font-weight: 400;
+}
+.header__notify-list {
+    padding-left: 0;
+
+}
+.header__notify-item {
+    display: flex;
+
+}
+.header__notify-item--seen {
+    background-color: ;
+    /* ghi chus */
+
+}
+.header__notify-link:hover {
+    background-color: #f1f1f1;
+}
+.header__notify-link {
+    display: flex;
+    padding: 12px;
+    text-decoration: none;
+    background-color: rgba(285, 75, 43, 0.09);
+    width: 100%;
+
+}
+.header__notify-img {
+
+    width: 40px;
+    object-fit: contain;
+}
+.header__notify-info {
+    margin-left: 12px;
+
+}
+.header__notify-name {
+    display: block;
+    padding-bottom: 12px;
+    color: black;
+    font-size: 14px;
+    font-weight: 400;
+
+}
+.header__notify-description {
+    display: block;
+    font-size: 12px;
+    color: #756f6e;
+    line-height: 1.2rem;
+
+}
+.header__notify-footer {
+    text-align: center;
+    padding: 14px 14px;
+}
+.header__notify-footer-btn {
+    text-decoration: none;
+    color: #000;
+}
+/* CSS dki dnhap */
+ /* .auth-form__container {
+    padding: 0 32px;
+}
+.auth-form__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.auth-form__heading {
+    font-size: 22px;
+    font-weight: 400;
+    padding: 0 12px;
+}
+.auth-form__switch-btn {
+    font-size: 16px;
+    color: #d63606;
+    font-weight: 400;
+    cursor: pointer;
+}
+.auth-form__form {
+    
+}
+.auth-form__input {
+    /* width laf chieeuf ngang */
+ /*   width: 100%;
+    /* height la chieu doc */
+ /*   height: 40px;
+    margin-top: 16px;
+    padding: 0 16px;
+    font-size: 14px;
+    border: 1px solid #dbdbdb;
+    border-radius: 2px; 
+    /* outline laf  khi click vào email, đăng */
+    /* nhập mk các kiểu sẽ nổi ra hightline màu theo máy */
+ /*   outline-color: black;
+}
+..auth-form__input:focus {
+    border-color: #888;
+}
+.auth-form__aside {
+   margin-top: 18px;
+}
+.auth-form__policy-text {
+    font-size: 14px;
+}
+.auth-form__text-link {
+    text-decoration: none;
+    
+} */ 
+
+
+.header-with-search {
+    width: 100%;
+    margin: 0 8px;
+    display: flex;
+    align-items: center;
+    height: var(--header-with-search-height);
+}
+.header__search-input-wrap { 
+    flex: 1;
+    height: 100%;
+    position: relative;
+}
+.header__search-history {
+    position: absolute;
+    left: 0;
+    display: flex;
+    
+    background-color: #fff;
+}
+.header__search-history-heading {
+    
+    position: relative;
+}
+.header__logo {
+    width: 200px;
+}
+.header__logo-img {
+    width: 150px;
+}
+.header__search {
+    background-color: var(--while-color);
+    height: 40px;
+    flex: 1;
+    border-radius: 2px;
+    align-items: center;
+    display: flex; //nam ngang vs search
+    
+}
+.header__cart {
+    width: 150px;
+    text-align: center;
+    font-size: 20px;
+    color: var(--while-color); 
+}
+.header__cart-icon {
+    color: var(--while-color);
+    margin-top: 4px;
+   
+    
+}
+.header__search-input {
+
+    height: 100%;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    color: var(--text-color);
+    padding: 0 16px;
+    border-radius: 2px;
+}
+.header__search-selection {
+    border-left: 1px solid #E8E8E8;
+    padding-left: 16px;
+}
+.header__search-selection-label {
+    font-size: 14px;
+    color: var(--text-color);
+
+}
+.header__search-selection-icon {
+
+    font-size: 14px;
+    color: #4a4a4a;
+    margin: 0 16px 0 8px;
+    position: relative;
+    top: 1px;
+}
+.header__search-btn {
+    background-color: #f84d2b ;
+    border: none;
+    height: 36px;
+    width: 60px;
+    
+    margin-right: 2px;
+    border-radius: 2px;
+
+
+}
+.header__search-btn:hover {
+    background-color: #f87d64 ;
+    cursor: pointer;
+
+}
+
+
+.header__search-btn-icon {
+    color: #fff;
+}
+.modal__body {
+    
+    background-color: white ;
+    
+    /* ddee body nằm giữa modal thì cho ông chứa thẻ  */
+    /* body display flex rồi thẻ body margin = auto */
+     margin: auto;
+    position: relative;
+    z-index: 1;
+    /* mặc định z index = 0, muốn cho lớp nào nổi lên thì dùng z index */
+
+
+}
+.auth__form-container {
+    padding: 0 32px;
+}
+.auth__form-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12px;
+    margin-top: 8px;
+}
+.auth__form-heading {
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--text-color);
+}
+.auth__form-switch-btn {
+    font-size: 16px;
+    color: var(--primary-color);
+    font-weight: 500;
+    cursor: pointer;
+}
+.auth__form-form {
+
+}
+.auth__form {
+    width: 500px;
+    background-color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.auth__form-input {
+    width: 100%;
+    height: 40px;
+    margin-top: 16px;
+    padding: 0 12px;
+    font-size: 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 2px;
+    outline: none;
+}
+.auth__form-aside {
+    margin-top: 20px;
+}
+.auth__form-policy-text {
+    font-size: 12px;
+    line-height: 18px;
+    text-align: center;
+    padding: 0 9px;
+}
+.text-link {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+.auth__form-controls {
+    margin-top: 80px;
+    display: flex;
+    justify-content: flex-end;
+  
+}  
+.auth__form-back {
+    margin-right: 8px;
+}
+.auth__form-socials {
+    background-color: #F5F5F5;
+    padding: 12px 32px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+.auth__form-socials-icon {
+    font-size: 18px;
+    padding: 5px 8px;
+    justify-content: center;
+}
+.auth__form-socials-facebook {
+    background-color: #3A5A98;
+    color: #fff;
+}
+.auth__form-socials-facebook
+.auth__form-socials-icon {
+    
+    color: #fff;
+}
+.auth__form-facebook-text {
+    color: #fff;
+}
+.auth__form-facebook-text {
+    margin: 0 28px;
+}
+.auth__form-socials-google { 
+    background-color: #fff;
+}
+.auth__form-google-text {
+    color: black;
+    margin: 0 24px;
+
+}
+.auth__form-help {
+    display: flex;
+    justify-content: end;
+
+}
+.auth__form-help-link {
+    text-decoration: none;
+    font-size: 14px;
+    color: #939393;
+}
+.auth__form-help-text-left-link {
+    color: #EE4D2D;
+    text-decoration: none;
+    font-size: 14px;
+}
+.auth__form-help-separate {
+    display: block;
+    border-left: 1px solid var(--border-color);
+    height: 22px;
+    
+    margin: -3px 16px 0;
+}
